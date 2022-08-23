@@ -8,6 +8,7 @@ class JavalibApplicationTests {
 
     @Test
     void contextLoads() {
+        System.out.println("fewafw");
     }
 
 }

@@ -8,6 +8,7 @@ import com.pt.javalib.framework.spring.config.BeanReference;
 import com.pt.javalib.framework.spring.config.BeanValue;
 import com.pt.javalib.framework.spring.config.BeanValues;
 import com.pt.javalib.framework.spring.factory.DefaultListableBeanFactory;
+import com.pt.javalib.framework.spring.factory.XmlBeanDefinitionReader;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -26,12 +27,24 @@ public class SpringTest extends JavalibApplicationTests {
 
 
         BeanValues beanValue = new BeanValues();
-        beanValue.addBeanValue(new BeanValue("userName","FFFFF"));
+        beanValue.addBeanValue(new BeanValue("username","FFFFF"));
         beanValue.addBeanValue(new BeanValue("age",22));
         beanValue.addBeanValue(new BeanValue("userDao",new BeanReference("userDao")));
-        factory.registerBeanDefinition("userService", new BeanDefinition(UserService.class));
+        factory.registerBeanDefinition("userService", new BeanDefinition(UserService.class, beanValue));
 
         UserService userService = (UserService) factory.getBean("userService", new Object[]{"AAAA", 22});
         userService.getInfo();
+        System.out.println(userService.getUsernameById(1L));
+    }
+
+    @Test
+    public void AutoRegisterTest() {
+        DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
+        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(factory);
+        xmlBeanDefinitionReader.loadBeanDefinitions("classpath:spring.xml");
+
+        UserService userService = (UserService) factory.getBean("userService", new Object[]{"AAAA", 22});
+        userService.getInfo();
+        System.out.println(userService.getUsernameById(1L));
     }
 }

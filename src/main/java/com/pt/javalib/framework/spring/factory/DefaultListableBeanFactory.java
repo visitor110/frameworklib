@@ -24,4 +24,8 @@ public class DefaultListableBeanFactory extends AbstarctAutowireCapableBeanFacto
     public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition) {
         this.definitionMap.put(beanName, beanDefinition);
     }
+
+    public boolean containsBeanDefinition(String beanName){
+        return definitionMap.containsKey(beanName);
+    }
 }

@@ -11,6 +11,8 @@ public class UserService {
 
     private Integer age;
 
+    private UserDao userDao;
+
     public UserService() {
     }
 
@@ -25,6 +27,10 @@ public class UserService {
 
     public void getInfo(){
         System.out.println(this.username + this.age);
+    }
+
+    public String getUsernameById(Long id){
+        return userDao.getNameById(id);
     }
 
 }

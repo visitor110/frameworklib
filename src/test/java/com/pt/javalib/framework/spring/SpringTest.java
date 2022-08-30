@@ -10,6 +10,7 @@ import com.pt.javalib.framework.spring.config.BeanValues;
 import com.pt.javalib.framework.spring.factory.DefaultListableBeanFactory;
 import com.pt.javalib.framework.spring.factory.XmlBeanDefinitionReader;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
 
 /**
  * @author ：peitong

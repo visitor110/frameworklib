@@ -13,13 +13,13 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
 
     @Override
     public Object getBean(String beanName) {
-     return getBean(beanName, null);
+        return getBean(beanName, null);
     }
 
     @Override
     public Object getBean(String beanName, Object[] args) {
 
-        Object bean = getSingletonBean(beanName);
+        Object bean = getSingleton(beanName);
         if (bean != null) {
             return bean;
         }

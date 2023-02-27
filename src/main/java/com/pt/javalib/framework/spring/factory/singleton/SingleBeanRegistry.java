@@ -7,5 +7,7 @@ package com.pt.javalib.framework.spring.factory.singleton;
  */
 public interface SingleBeanRegistry {
 
-    Object getSingletonBean(String beanName);
+    Object getSingleton(String beanName);
+
+    void registerSingleton(String beanName, Object singletonObject);
 }

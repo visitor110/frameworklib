@@ -25,7 +25,7 @@ public abstract class AbstarctAutowireCapableBeanFactory extends AbstractBeanFac
         try {
             bean = createBeanInstance(beanName, beanDefinition, args);
             applyBeanValue(bean, beanDefinition);
-            addSingleton(beanName, beanDefinition);
+            registerSingleton(beanName, beanDefinition);
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
